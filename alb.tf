@@ -1,4 +1,4 @@
-resource "aws_lb" "network" {
+resource "aws_lb" "application" {
   name               = var.aws_lb
   internal           = false
   load_balancer_type =  var.load_balancer_type
@@ -9,7 +9,7 @@ resource "aws_lb" "network" {
   }
 }
 
-resource "aws_lb_target_group" "network" {
+resource "aws_lb_target_group" "application" {
   name     = var.aws_lb_target_group
   port     = 80
   protocol = "HTTP"
@@ -27,7 +27,7 @@ resource "aws_lb_target_group" "network" {
   }
 }
 
-resource "aws_lb_listener" "network" {
+resource "aws_lb_listener" "application" {
   load_balancer_arn = aws_lb.network.arn
   port              = 80
   protocol          = "HTTP"
@@ -38,12 +38,12 @@ resource "aws_lb_listener" "network" {
 }
 
 resource "aws_lb_target_group_attachment" "web" {
-  target_group_arn = aws_lb_target_group.network.arn
+  target_group_arn = aws_lb_target_group.application.arn
   target_id        = aws_instance.web.id
   port             = 80
 }
 resource "aws_lb_target_group_attachment" "webserver" {
-  target_group_arn = aws_lb_target_group.network.arn
+  target_group_arn = aws_lb_target_group.application.arn
   target_id        = aws_instance.webserver.id
   port             = 80
 }
