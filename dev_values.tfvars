@@ -1,0 +1,11 @@
+aws_region = "us-west-2"
+key_name = "dev_key"
+tag = ["dev-server1","dev-server2"]
+instance_type = "t2.micro"
+ami = "ami-03c983f9003cb9cd1"
+vpc_security_group_id = "sg-0bc5cd5487adfa7bd"
+aws_lb = "dev-lb"
+load_balancer_type = "network"
+subnet_id = ["subnet-0160fa13810235c75", "subnet-018df9c7bf0674480"]
+aws_lb_target_group = "dev-lb-tg"
+vpc_id = "vpc-0e7311da59b90d0f8"
