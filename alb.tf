@@ -16,7 +16,7 @@ resource "aws_lb_target_group" "application" {
   vpc_id   = var.vpc_id
   health_check {
     path                = "/"
-    interval            = 10
+    interval            = 20
     timeout             = 10
     healthy_threshold   = 2
     unhealthy_threshold = 5
