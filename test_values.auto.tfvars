@@ -1,6 +1,6 @@
 aws_region = "us-west-2"
 key_name = "test_key"
-tag = ["test-server1","test-server2"]
+tag = ["Test-server1","Test-server2"]
 instance_type = "t2.micro"
 ami = "ami-03c983f9003cb9cd1"
 vpc_security_group_id = "sg-0bc5cd5487adfa7bd"
