@@ -24,14 +24,12 @@ resource "aws_instance" "web" {
  } 
  provisioner "remote-exec" { 
  inline = [ 
-  "sudo add-apt-repository ppa:tomcat9",
- "sudo apt-get update", 
- "sudo apt-get install maven -y",
- "sudo apt-get install tomcat9 tomcat9-admin -y",
- "mkdir siva && cd siva",
- "git clone https://github.com/gampasivakumar4422/Task-1.git",
- "cd Task-1 && mvn clean package",
- "cd target && sudo mv SivaKumar-1.0.war /var/lib/tomcat9/webapps/Siva.war"
+  "sudo apt-get update", 
+ "sudo apt-get install nginx -y",
+ "touch index.nginx-debian.html",
+ "echo '<h1> This is my nginx appalication </h1>' | tee index.nginx-debian.html",
+ "sudo mv index.nginx-debian.html /var/www/html/index.nginx-debian.html",
+ "sudo systemctl restart nginx.service"
  ] 
  } 
 } 
@@ -55,14 +53,12 @@ resource "aws_instance" "webserver" {
  } 
  provisioner "remote-exec" { 
  inline = [ 
-  "sudo add-apt-repository ppa:tomcat9",
  "sudo apt-get update", 
- "sudo apt-get install maven -y",
- "sudo apt-get install tomcat9 tomcat9-admin -y",
- "mkdir siva && cd siva",
- "git clone https://github.com/gampasivakumar4422/Task-2.git",
- "cd Task-1 && mvn clean package",
- "cd target && sudo mv SivaKumar-1.0.war /var/lib/tomcat9/webapps/Siva.war"
+ "sudo apt-get install nginx -y",
+ "touch index.nginx-debian.html",
+ "echo '<h1> This is my nginx appalication 1 </h1>' | tee index.nginx-debian.html",
+ "sudo mv index.nginx-debian.html /var/www/html/index.nginx-debian.html",
+ "sudo systemctl restart nginx.service"
  ] 
  } 
 } 
