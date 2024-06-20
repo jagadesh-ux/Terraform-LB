@@ -3,7 +3,7 @@ provider "aws" {
 } 
 resource "aws_key_pair" "test" { 
  key_name = var.key_name 
- public_key = file(".demo.pub") 
+ public_key = file("./demo.pub") 
 } 
 resource "aws_instance" "web" { 
  ami = var.ami 
@@ -17,7 +17,7 @@ resource "aws_instance" "web" {
  connection {
  type = "ssh" 
  user = "ubuntu" 
- private_key = file(".demo")  
+ private_key = file("./demo")  
  host = self.public_ip 
  timeout = "1m" 
  agent = false 
