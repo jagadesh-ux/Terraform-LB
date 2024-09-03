@@ -1,5 +1,5 @@
 provider "aws" { 
- region = "us-west-2" 
+ region = "ap-southeast-2" 
 } 
 resource "aws_key_pair" "test" { 
  key_name = var.key_name 
